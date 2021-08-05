@@ -1,7 +1,9 @@
 # UAV_LiDAR_Avoid_Detect_H_DL
 Simulation of UAV obstacle avoidance by using an on-board LiDAR and target (landing pad) recognition by using deep learning (DL).
 
-Scenario: A quadrotor automatically take off and fly to a given waypoint avoiding obstacles in the flight path. When the quadrotor approaches to the waypoint, it searches the landing pad represented by the character, 'H'. A youtube video is available at the following link:
+Scenario: A quadrotor automatically take off and fly to a given waypoint avoiding obstacles in the flight path by using onboard LiDAR sensor. When the quadrotor approaches to the waypoint, it searches the landing pad represented by the character, 'H' by using an onboard camera. A youtube video is avaialble at:
+https://youtu.be/UDUXXEQqkv8 
+Note the blue circle around the quadrotor in the video represents the lidar sensing points. 
 
 
 Robot operating system (ROS) communicates with ArduPilot and Gazebo: ArduPiot is a low-cost open-source autopilot software package applicable to various unmanned systems, and Gazebo is a graphical physics simulator used in robotics. In this work, ArduPilot executes low level control commands, for example, take-off and waypoint tracking. Gazebo provides graphical objects including obstacles, the quadrotor, and landing pad based on their physical models. ROS administrates the simulation by using multiple packages. For example, ROS packages generates local path planning by processing onboard LiDAR data, and generates/receives commands and data with ArduPilot and Gazebo. A simple landing pad identification by using DL is tested at the end of the simulation. For this task, a CNN model classifying alphabets are trained on handwritten-alphabet datasets (downloaded from https://www.kaggle.com/sachinpatel21/az-handwritten-alphabets-in-csv-format.) To keep the problem as a simple classification problem, I implemented openCV codes to localize each character, then a sub-image centered at the target location was fed to the CNN model. (Note DL object detection algorithm can do localization and classification at the same time, but it needs a lot more datasets).

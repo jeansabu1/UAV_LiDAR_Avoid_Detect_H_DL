@@ -8,9 +8,10 @@ Robot operating system (ROS) communicates with ArduPilot and Gazebo: ArduPiot is
 
 
 ROS packages and nodes used in this work include:
-1)  Autonomy package (C++): communicates with ArduPilot and Gazebo simulator, process lidar data, and generate local path planning. 
-2)  mavros package : enables communication between ROS and an autopilot based on MAVLink.
-2)  hector_quadrotor package: a quadrotor simulation package including modeling and control.
+1)  hector_quadrotor package: a quadrotor simulation package including modeling and control (http://wiki.ros.org/hector_quadrotor). 
+2)  mavros package : enables communication between ROS and an autopilot based on MAVLink: (http://wiki.ros.org/mavros).
+3)  Autonomy package (C++): communicates with ArduPilot and Gazebo simulator, process lidar data, and .
+generate local path planning.
 4)  EO_sensing node (Python): localize characters in an image by using openCV, load trained CNN model, classify each localized character, and identify the character, 'H'.
 
 **How to run the simulation (roughly)**

@@ -13,7 +13,7 @@ ROS packages and nodes used in this work include:
 2)  hector_quadrotor package: a quadrotor simulation package including modeling and control.
 4)  EO_sensing node (Python): localize characters in an image by using openCV, load trained CNN model, classify each localized character, and identify the character, 'H'.
 
-** How to run the simulation (roughly) **
+**How to run the simulation (roughly)**
 
 Terminal 1) [turning on the autopilot]\
 $ sim_vehicle.py -j4 -v ArduCopter --console

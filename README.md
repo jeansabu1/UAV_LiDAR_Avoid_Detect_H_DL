@@ -13,13 +13,12 @@ ROS packages and nodes used in this work include:
 2)  hector_quadrotor package: a quadrotor simulation package including modeling and control.
 4)  EO_sensing node (Python): localize characters in an image by using openCV, load trained CNN model, classify each localized character, and identify the character, 'H'.
 
-================================================================================
-How to run the simulation (roughly)
-================================================================================
-Terminal 1) [turning on the autopilot]
+== How to run the simulation (roughly) ==
+
+Terminal 1) [turning on the autopilot]\
 $ sim_vehicle.py -j4 -v ArduCopter --console
 
-Terminal 2) [load the quadrotor, obstacles, and the landing pad with Gazebo]
+Terminal 2) [load the quadrotor, obstacles, and the landing pad with Gazebo]/
 $ roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch
 
 Terminal 3) [establish communication link between ROS and Ardupilot SITL]

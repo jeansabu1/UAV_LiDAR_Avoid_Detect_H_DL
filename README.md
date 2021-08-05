@@ -13,25 +13,25 @@ ROS packages and nodes used in this work include:
 2)  hector_quadrotor package: a quadrotor simulation package including modeling and control.
 4)  EO_sensing node (Python): localize characters in an image by using openCV, load trained CNN model, classify each localized character, and identify the character, 'H'.
 
-== How to run the simulation (roughly) ==
+** How to run the simulation (roughly) **
 
 Terminal 1) [turning on the autopilot]\
 $ sim_vehicle.py -j4 -v ArduCopter --console
 
-Terminal 2) [load the quadrotor, obstacles, and the landing pad with Gazebo]/
+Terminal 2) [load the quadrotor, obstacles, and the landing pad with Gazebo]\
 $ roslaunch hector_quadrotor_demo outdoor_flight_gazebo.launch
 
-Terminal 3) [establish communication link between ROS and Ardupilot SITL]
+Terminal 3) [establish communication link between ROS and Ardupilot SITL]\
 $ roslaunch autonomy sitl_copter.launch     
 
-Terminal 4) [Send commands (e.g. take-off) to Ardupilot and control inputs (e.g., velocity) to Hector_quadrotor] 
+Terminal 4) [Send commands (e.g. take-off) to Ardupilot and control inputs (e.g., velocity) to Hector_quadrotor]\
 $ rosrun autonomy mavlink_handler
 
-Terminal 5) [Process lidar data and generate local path planning]
+Terminal 5) [Process lidar data and generate local path planning]\
 $ rosrun autonomy vfh_local_planning
 
-~~~ Wait until the quadroter reaches close to a given waypoint~~~~~ 
+== Wait until the quadroter reaches close to a given waypoint ==
 
-Terminal 6) [localize characters, load CNN model, identify 'H']
+Terminal 6) [localize characters, load CNN model, identify 'H']\
 $ rosrun autonomy EO_sensing.py
 

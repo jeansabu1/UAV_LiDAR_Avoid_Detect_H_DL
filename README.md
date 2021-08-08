@@ -14,7 +14,17 @@ ROS packages and nodes used in this work include:
 2)  mavros package : enables communication between ROS and an autopilot based on MAVLink: (http://wiki.ros.org/mavros).
 3)  Autonomy package (C++): communicates with ArduPilot and Gazebo simulator, process lidar data, and .
 generate local path planning.
-4)  EO_sensing node (Python): localize characters in an image by using openCV, load trained CNN model, classify each localized character, and identify the character, 'H'.
+
+4) Autonomy/autonomy sitl_copter.launch: establishes communication between ROS and Ardupoilt.
+
+Custom built ROS nodes
+1) Autonomy/mavlink_handler (C++): sends commands (e.g., setmode, takeoff) to Ardupilot and publishes initial vehicle position commdands and waypoint information.
+
+2) Autonomy/vfh_local_planning (C++): receives LiDAR data from the Hector_quadrotoer and GPS and vehicle states from the mavlink_hanlder node, calculates desired vehicle velocity commands, and sends the velocity commands to Hector_quadrotor and Gazebo simulation.
+
+3)  EO_sensing node (Python): localize characters in an image by using openCV, load trained CNN model, classify each localized character, and identify the character, 'H'.
+
+
 
 **How to run the simulation (roughly)**
 
@@ -30,7 +40,7 @@ $ roslaunch autonomy sitl_copter.launch
 Terminal 4) [Send commands (e.g. take-off) to Ardupilot and control inputs (e.g., velocity) to Hector_quadrotor]\
 $ rosrun autonomy mavlink_handler
 
-Terminal 5) [Process lidar data and generate local path planning]\
+Terminal 5) [Process lidar data and generate local path planning by using vector field histogram algorithm (VFH)]\
 $ rosrun autonomy vfh_local_planning
 
 == Wait until the quadroter reaches close to a given waypoint ==
